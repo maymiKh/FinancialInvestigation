@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.3.11512.155 d18.3
+VisualStudioVersion = 18.3.11512.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigationCopilotApi", "FinancialInvestigationCopilotApi\FinancialInvestigationCopilotApi.csproj", "{61E24814-1337-4E46-8E7C-E751B851C652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigationCopilotData", "FinancialInvestigationCopilotData\FinancialInvestigationCopilotData.csproj", "{94A15CCB-6845-4440-ABED-52FCC1D85895}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvetigationApp", "FinancialInvetigationApp\FinancialInvetigationApp.csproj", "{8559C1C2-0F7F-4113-993D-3C0028D28970}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigatorInfra", "FinancialInvestigatorInfra\FinancialInvestigatorInfra.csproj", "{4E7957BF-900E-4381-91AA-F84ABC603D97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigatorTest", "FinancialInvestigatorTest\FinancialInvestigatorTest.csproj", "{3B39B429-597D-4B67-B51E-98B8CFC2A11E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +23,22 @@ Global
 		{61E24814-1337-4E46-8E7C-E751B851C652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61E24814-1337-4E46-8E7C-E751B851C652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61E24814-1337-4E46-8E7C-E751B851C652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94A15CCB-6845-4440-ABED-52FCC1D85895}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94A15CCB-6845-4440-ABED-52FCC1D85895}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94A15CCB-6845-4440-ABED-52FCC1D85895}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94A15CCB-6845-4440-ABED-52FCC1D85895}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8559C1C2-0F7F-4113-993D-3C0028D28970}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8559C1C2-0F7F-4113-993D-3C0028D28970}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8559C1C2-0F7F-4113-993D-3C0028D28970}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8559C1C2-0F7F-4113-993D-3C0028D28970}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E7957BF-900E-4381-91AA-F84ABC603D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E7957BF-900E-4381-91AA-F84ABC603D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E7957BF-900E-4381-91AA-F84ABC603D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E7957BF-900E-4381-91AA-F84ABC603D97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B39B429-597D-4B67-B51E-98B8CFC2A11E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B39B429-597D-4B67-B51E-98B8CFC2A11E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B39B429-597D-4B67-B51E-98B8CFC2A11E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B39B429-597D-4B67-B51E-98B8CFC2A11E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
