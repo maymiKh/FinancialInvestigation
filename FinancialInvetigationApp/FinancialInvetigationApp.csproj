@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Incidents\Commands\CreateIncident\" />
     <Folder Include="Features\Incidents\Querries\GetIncidentById\" />
   </ItemGroup>
 
