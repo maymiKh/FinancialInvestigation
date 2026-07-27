@@ -13,6 +13,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigatorInfra"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialInvestigatorTest", "FinancialInvestigatorTest\FinancialInvestigatorTest.csproj", "{3B39B429-597D-4B67-B51E-98B8CFC2A11E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FinancialInvestigationCopilot", "FinancialInvestigationCopilot", "{702EDE50-324D-48FD-A778-435F70C074A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B4882424-8498-4E9C-B8D8-7C375FC43F93}"
+	ProjectSection(SolutionItems) = preProject
+		incident-types.md = incident-types.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +49,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B4882424-8498-4E9C-B8D8-7C375FC43F93} = {702EDE50-324D-48FD-A778-435F70C074A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {539ABE75-20F1-46DE-BC5C-932BB04AE0D8}
