@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Incidents\Querries\GetIncidentById\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\FinancialInvestigationCopilotData\FinancialInvestigationCopilotData.csproj" />
   </ItemGroup>
 

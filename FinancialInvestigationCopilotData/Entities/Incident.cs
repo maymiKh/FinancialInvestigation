@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FinancialInvestigationCopilotData.Enum;
 
 namespace FinancialInvestigationCopilotData.Entities
 {
@@ -10,6 +8,6 @@ namespace FinancialInvestigationCopilotData.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime CreatedDate { get; set; }
-        public string Status { get; set; }
+        public IncidentStatus Status { get; set; }
     }
 }
