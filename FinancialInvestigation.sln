@@ -17,6 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FinancialInvestigationCopil
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{B4882424-8498-4E9C-B8D8-7C375FC43F93}"
 	ProjectSection(SolutionItems) = preProject
+		ai-notes.md = ai-notes.md
 		incident-types.md = incident-types.md
 		user-question.md = user-question.md
 	EndProjectSection
