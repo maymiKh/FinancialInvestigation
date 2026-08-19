@@ -5,12 +5,6 @@ namespace FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById
 {
     public class GetIncidentByIdQueryHandler : IRequestHandler<GetIncidentByIdQuery, IncidentDto>
     {
-        public string Handle(
-                GetIncidentByIdQuery query)
-        {
-            return $"Incident {query.Id}";
-        }
-
         public async Task<IncidentDto> Handle(GetIncidentByIdQuery request, CancellationToken cancellationToken)
         {
             return await Task.FromResult(
