@@ -1,10 +1,12 @@
-﻿namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
+﻿using MediatR;
+
+namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
 {
-    public class CreateIncidentCommandHandler
+    public class CreateIncidentCommandHandler : IRequestHandler<CreateIncidentCommand, string>
     {
-        public string Handle(CreateIncidentCommand command)
+        public async Task<string> Handle(CreateIncidentCommand request, CancellationToken cancellationToken)
         {
-            return $"Incident'{command.Title}' created";
+            return await Task.FromResult($"Incident'{request.Title}' created");
         }
     }
 }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FinancialInvetigationApp.DTOs;
+using MediatR;
 
 namespace FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById
 {
-    public record GetIncidentByIdQuery(int Id);
+    public record GetIncidentByIdQuery(int Id) : IRequest<IncidentDto>;
 }

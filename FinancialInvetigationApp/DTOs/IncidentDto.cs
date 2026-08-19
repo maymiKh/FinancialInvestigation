@@ -4,8 +4,10 @@ using System.Text;
 
 namespace FinancialInvetigationApp.DTOs
 {
-    public record IncidentDto(int Id,
+    public record IncidentDto(
+        int Id,
         string Title,
         string Description,
-        string Status);
+        string Status
+        );
 }

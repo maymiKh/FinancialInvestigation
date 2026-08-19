@@ -1,5 +1,6 @@
 using FinancialInvetigationApp.IServices;
 using FinancialInvetigationApp.Services;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IInvestigationService,
                             InvestigationService>();
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.Load("FinancialInvestigation.FinancialInvetigationApp")));
 
 var app = builder.Build();
 
