@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FinancialInvetigationApp.DTOs;
+using MediatR;
 
 namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
 {
@@ -6,5 +7,5 @@ namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
     (
         string Title,
         string Description
-    ) : IRequest<string>;
+    ) : IRequest<IncidentDto>;
 }

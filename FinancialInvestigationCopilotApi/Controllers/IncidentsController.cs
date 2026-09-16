@@ -1,4 +1,6 @@
-﻿using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
+﻿using FinancialInvestigationCopilotData.Entities;
+using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
+using FinancialInvetigationApp.Features.Incidents.Querries.GetAllIncidents;
 using FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -25,9 +27,23 @@ namespace FinancialInvestigationCopilotApi.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetIncidentById(int id)
+        public async Task<IActionResult> GetIncidentById(int id, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetIncidentByIdQuery(id));
+            var result = await _mediator.Send(new GetIncidentByIdQuery(id), cancellationToken);
+            if (result is null)
+            {
+                return NotFound(new
+                {
+                    message = $"Incident with ID {id} was not found."
+                });
+            }
+            return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllIncidents(CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new GetAllIncidentQuery(), cancellationToken);
             return Ok(result);
         }
     }

@@ -8,6 +8,7 @@ namespace FinancialInvetigationApp.DTOs
         int Id,
         string Title,
         string Description,
-        string Status
+        string Status,
+        DateTime CreatedOn
         );
 }

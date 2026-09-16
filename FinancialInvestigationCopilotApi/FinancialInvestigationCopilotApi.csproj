@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FinancialInvestigatorInfra\FinancialInvestigatorInfra.csproj" />
     <ProjectReference Include="..\FinancialInvetigationApp\FinancialInvetigationApp.csproj" />
   </ItemGroup>
 

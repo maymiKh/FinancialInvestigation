@@ -1,3 +1,5 @@
+using FinancialInvestigatorInfra.Persistence;
+using FinancialInvetigationApp.Interfaces;
 using FinancialInvetigationApp.IServices;
 using FinancialInvetigationApp.Services;
 using System.Reflection;
@@ -9,8 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IInvestigationService,
-                           InvestigationService>();
+builder.Services.AddScoped<IInvestigationService, InvestigationService>();
+builder.Services.AddSingleton<IIncidentRepository, InMemoryIncidentRepository>();
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(

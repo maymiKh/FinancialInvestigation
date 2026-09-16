@@ -1,12 +1,37 @@
-﻿using MediatR;
+﻿using FinancialInvestigationCopilotData.Entities;
+using FinancialInvestigationCopilotData.Enum;
+using FinancialInvetigationApp.DTOs;
+using FinancialInvetigationApp.Interfaces;
+using MediatR;
+using System.Net.NetworkInformation;
 
 namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
 {
-    public class CreateIncidentCommandHandler : IRequestHandler<CreateIncidentCommand, string>
+    public class CreateIncidentCommandHandler : IRequestHandler<CreateIncidentCommand, IncidentDto>
     {
-        public async Task<string> Handle(CreateIncidentCommand request, CancellationToken cancellationToken)
+        private readonly IIncidentRepository _repository;
+
+        public CreateIncidentCommandHandler(IIncidentRepository repository)
         {
-            return await Task.FromResult($"Incident'{request.Title}' created");
+            _repository = repository;
+        }
+
+        public async Task<IncidentDto> Handle(CreateIncidentCommand request, CancellationToken cancellationToken)
+        {
+            var incident = new Incident
+            {
+                Title = request.Title,
+                Description = request.Description,
+                Status = IncidentStatus.Open,
+                CreatedDate = DateTime.UtcNow
+            } ;
+            var createdIncident = await _repository.AddAsync(incident, cancellationToken);
+            return new IncidentDto(
+            createdIncident.Id,
+            createdIncident.Title,
+            createdIncident.Description,
+            createdIncident.Status.ToString(),
+            createdIncident.CreatedDate);
         }
     }
 }

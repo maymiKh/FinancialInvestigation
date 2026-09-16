@@ -1,17 +1,13 @@
 ﻿using FinancialInvestigationCopilotData.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FinancialInvetigationApp.Interfaces
 {
     public interface IIncidentRepository
     {
-        public interface IIncidentRepository
-        {
-            Task<Incident?> GetByIdAsync(int id);
+        Task<Incident?> GetByIdAsync(int id, CancellationToken cancellationToken);
 
-            Task AddAsync(Incident incident);
-        }
+        Task<Incident> AddAsync(Incident incident, CancellationToken cancellationToken);
+
+        Task<IReadOnlyCollection<Incident>> GetAllAsync(CancellationToken cancellationToken);
     }
 }
