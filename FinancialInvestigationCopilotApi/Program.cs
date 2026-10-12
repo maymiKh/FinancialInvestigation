@@ -3,9 +3,13 @@ using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
 using FinancialInvetigationApp.Interfaces;
 using FinancialInvetigationApp.IServices;
 using FinancialInvetigationApp.Services;
+using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
+
+var connectionString = builder.Configuration
+    .GetConnectionString("DefaultConnection");
 
 builder.Services.AddControllers();
 
@@ -13,7 +17,13 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IInvestigationService, InvestigationService>();
-builder.Services.AddSingleton<IIncidentRepository, InMemoryIncidentRepository>();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+});
+
+builder.Services.AddScoped<IIncidentRepository,IncidentRepository>();
 
 builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(
