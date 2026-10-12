@@ -20,24 +20,27 @@ namespace FinancialInvestigationCopilotApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateIncident([FromBody] CreateIncidentCommand command)
+        public async Task<IActionResult> CreateIncident([FromBody] CreateIncidentCommand command, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(command);
-            return Ok(result);
+            var incident = await _mediator.Send(command, cancellationToken);
+
+            return CreatedAtAction(
+                nameof(GetIncidentById),
+                new { id = incident.Id },
+                incident);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetIncidentById(int id, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetIncidentByIdQuery(id), cancellationToken);
-            if (result is null)
+            var incident = await _mediator.Send(new GetIncidentByIdQuery(id), cancellationToken);
+
+            if (incident is null)
             {
-                return NotFound(new
-                {
-                    message = $"Incident with ID {id} was not found."
-                });
+                return NotFound();
             }
-            return Ok(result);
+
+            return Ok(incident);
         }
 
         [HttpGet]
