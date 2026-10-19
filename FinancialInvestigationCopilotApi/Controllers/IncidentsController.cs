@@ -1,8 +1,11 @@
-﻿using FinancialInvestigationCopilotData.Entities;
+﻿using FinancialInvestigationCopilotApi.Models;
+using FinancialInvestigationCopilotData.Entities;
 using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
+using FinancialInvetigationApp.Features.Incidents.Commands.UpdateIncidentStatus;
 using FinancialInvetigationApp.Features.Incidents.Querries.GetAllIncidents;
 using FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById;
 using MediatR;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialInvestigationCopilotApi.Controllers
@@ -28,6 +31,22 @@ namespace FinancialInvestigationCopilotApi.Controllers
                 nameof(GetIncidentById),
                 new { id = incident.Id },
                 incident);
+        }
+
+        [HttpPatch("{id:int}/status")]
+        public async Task<IActionResult> UpdateIncident(int id, [FromBody] UpdateIncidentStatusRequest request, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new UpdateIncidentStatusCommand(id, request.Status), cancellationToken);
+
+            if (result is null)
+            {
+                return NotFound(new
+                {
+                    message = $"Incident {id} was not found."
+                });
+            }
+
+            return Ok(result);
         }
 
         [HttpGet("{id:int}")]

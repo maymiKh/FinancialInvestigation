@@ -6,7 +6,11 @@ namespace FinancialInvetigationApp.Interfaces
     {
         Task<Incident?> GetByIdAsync(int id, CancellationToken cancellationToken);
 
+        Task<Incident?> GetForUpdateAsync(int id, CancellationToken cancellationToken);
+
         Task<Incident> AddAsync(Incident incident, CancellationToken cancellationToken);
+
+        Task SaveChangeAsync(CancellationToken cancellationToken);
 
         Task<IReadOnlyCollection<Incident>> GetAllAsync(CancellationToken cancellationToken);
     }

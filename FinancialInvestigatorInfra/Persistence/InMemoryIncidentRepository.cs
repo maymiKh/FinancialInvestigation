@@ -24,5 +24,15 @@ namespace FinancialInvestigatorInfra.Persistence
             var incident = _incidents.FirstOrDefault(x => x.Id == id);
             return Task.FromResult(incident);
         }
+
+        public Task<Incident?> GetForUpdateAsync(int id, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SaveChangeAsync(CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

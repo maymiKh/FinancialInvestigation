@@ -3,7 +3,6 @@ using FinancialInvestigationCopilotData.Enum;
 using FinancialInvetigationApp.DTOs;
 using FinancialInvetigationApp.Interfaces;
 using MediatR;
-using System.Net.NetworkInformation;
 
 namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
 {

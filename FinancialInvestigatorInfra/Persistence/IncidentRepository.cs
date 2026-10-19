@@ -43,5 +43,18 @@ namespace FinancialInvestigatorInfra.Persistence
                 incident => incident.Id == id,
                 cancellationToken);
         }
+
+        public async Task<Incident?> GetForUpdateAsync(int id, CancellationToken cancellationToken)
+        {
+            return await _context.Incidents
+            .FirstOrDefaultAsync(
+                incident => incident.Id == id,
+                cancellationToken);
+        }
+
+        public async Task SaveChangeAsync(CancellationToken cancellationToken)
+        {
+            await _context.SaveChangesAsync(cancellationToken);
+        }
     }
 }
