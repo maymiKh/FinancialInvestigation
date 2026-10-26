@@ -1,9 +1,6 @@
 ﻿using FinancialInvestigationCopilotData.Entities;
 using FinancialInvetigationApp.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FinancialInvestigatorInfra.Persistence
 {
@@ -25,6 +22,11 @@ namespace FinancialInvestigatorInfra.Persistence
                 cancellationToken);
 
             return incident;
+        }
+
+        public void DeleteIncident(Incident incident)
+        {
+            _context.Incidents.Remove(incident);
         }
 
         public async Task<IReadOnlyCollection<Incident>> GetAllAsync(CancellationToken cancellationToken)

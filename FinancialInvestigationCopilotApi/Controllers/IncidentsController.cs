@@ -1,6 +1,7 @@
 ﻿using FinancialInvestigationCopilotApi.Models;
 using FinancialInvestigationCopilotData.Entities;
 using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
+using FinancialInvetigationApp.Features.Incidents.Commands.DeleteIncident;
 using FinancialInvetigationApp.Features.Incidents.Commands.UpdateIncidentStatus;
 using FinancialInvetigationApp.Features.Incidents.Querries.GetAllIncidents;
 using FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById;
@@ -54,11 +55,6 @@ namespace FinancialInvestigationCopilotApi.Controllers
         {
             var incident = await _mediator.Send(new GetIncidentByIdQuery(id), cancellationToken);
 
-            if (incident is null)
-            {
-                return NotFound();
-            }
-
             return Ok(incident);
         }
 
@@ -67,6 +63,14 @@ namespace FinancialInvestigationCopilotApi.Controllers
         {
             var result = await _mediator.Send(new GetAllIncidentQuery(), cancellationToken);
             return Ok(result);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteIncident(int id, CancellationToken cancellationToken)
+        {
+            await _mediator.Send(new DeleteIncidentCommand(id), cancellationToken);
+
+            return NoContent();
         }
     }
 }

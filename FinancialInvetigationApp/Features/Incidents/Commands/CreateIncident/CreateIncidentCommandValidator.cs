@@ -13,9 +13,10 @@ namespace FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident
                 .MaximumLength(100).WithMessage("Title cannot exceed 100 characters.");
 
             RuleFor(command => command.Title)
-            .MaximumLength(200)
-            .WithMessage(
-                "The incident title cannot exceed 200 characters.");
+                .NotEmpty()
+                .MaximumLength(200)
+                .WithMessage(
+                    "The incident title cannot exceed 200 characters.");
 
             RuleFor(command => command.Description)
                 .MaximumLength(2000)

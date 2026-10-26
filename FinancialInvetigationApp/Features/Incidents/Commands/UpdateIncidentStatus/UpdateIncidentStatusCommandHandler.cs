@@ -1,4 +1,5 @@
 ﻿using FinancialInvestigationCopilotData.Enum;
+using FinancialInvetigationApp.Common.Exceptions;
 using FinancialInvetigationApp.DTOs;
 using FinancialInvetigationApp.Interfaces;
 using MediatR;
@@ -21,7 +22,7 @@ namespace FinancialInvetigationApp.Features.Incidents.Commands.UpdateIncidentSta
 
             if (incident is null)
             {
-                return null;
+                throw new NotFoundExceptions(nameof(incident), request.Id);
             }
 
             var statusWasParsed = Enum.TryParse<IncidentStatus>(

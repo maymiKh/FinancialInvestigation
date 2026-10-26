@@ -12,6 +12,8 @@ namespace FinancialInvetigationApp.Interfaces
 
         Task SaveChangeAsync(CancellationToken cancellationToken);
 
+        void DeleteIncident(Incident incident);
+
         Task<IReadOnlyCollection<Incident>> GetAllAsync(CancellationToken cancellationToken);
     }
 }

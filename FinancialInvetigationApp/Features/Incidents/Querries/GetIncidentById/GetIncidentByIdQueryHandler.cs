@@ -1,4 +1,6 @@
-﻿using FinancialInvetigationApp.DTOs;
+﻿using FinancialInvestigationCopilotData.Entities;
+using FinancialInvetigationApp.Common.Exceptions;
+using FinancialInvetigationApp.DTOs;
 using FinancialInvetigationApp.Interfaces;
 using MediatR;
 
@@ -18,7 +20,7 @@ namespace FinancialInvetigationApp.Features.Incidents.Querries.GetIncidentById
             var incident = await _repository.GetByIdAsync(request.Id, cancellationToken);
             if (incident is null)
             {
-                return null;
+                throw new NotFoundExceptions(nameof(Incident), request.Id);
             }
             return new IncidentDto(
             incident.Id,
