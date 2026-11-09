@@ -1,5 +1,6 @@
 ﻿using FinancialInvestigationCopilotApi.Models;
 using FinancialInvestigationCopilotData.Entities;
+using FinancialInvetigationApp.Features.Incidents.Commands.AnalyzeIncident;
 using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
 using FinancialInvetigationApp.Features.Incidents.Commands.DeleteIncident;
 using FinancialInvetigationApp.Features.Incidents.Commands.UpdateIncidentStatus;
@@ -71,6 +72,13 @@ namespace FinancialInvestigationCopilotApi.Controllers
             await _mediator.Send(new DeleteIncidentCommand(id), cancellationToken);
 
             return NoContent();
+        }
+
+        [HttpPost("{id:int}/analyze")]
+        public async Task<IActionResult> AnalyzeIncident(int id, CancellationToken cancellationToken)
+        {
+            var result = await _mediator.Send(new AnalyzeIncidentCommand(id), cancellationToken);
+            return Ok(result);
         }
     }
 }

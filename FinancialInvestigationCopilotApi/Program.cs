@@ -1,5 +1,7 @@
 using FinancialInvestigationCopilotApi.Middelware;
+using FinancialInvestigatorInfra.AI;
 using FinancialInvestigatorInfra.Persistence;
+using FinancialInvetigationApp.AI;
 using FinancialInvetigationApp.Common.Behaviors;
 using FinancialInvetigationApp.Features.Incidents.Commands.CreateIncident;
 using FinancialInvetigationApp.Features.Incidents.Commands.UpdateIncidentStatus;
@@ -22,6 +24,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IInvestigationService, InvestigationService>();
+builder.Services.AddScoped<IAIService, FakeAIService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
