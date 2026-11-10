@@ -11,10 +11,15 @@ using FinancialInvetigationApp.Services;
 using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.AI;
+using OllamaSharp;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
-
+IChatClient chatClient =
+    new OllamaApiClient(
+        new Uri("http://localhost:11434/"),
+        "phi3:mini");
 var connectionString = builder.Configuration
     .GetConnectionString("DefaultConnection");
 
@@ -22,9 +27,9 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddSingleton(chatClient);
 builder.Services.AddScoped<IInvestigationService, InvestigationService>();
-builder.Services.AddScoped<IAIService, FakeAIService>();
+builder.Services.AddScoped<IAIService, AIService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {
